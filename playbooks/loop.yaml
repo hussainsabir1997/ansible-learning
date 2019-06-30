@@ -1,0 +1,24 @@
+---
+- hosts: local
+  remote_user: ec2-user
+  become: true
+  vars:
+    servers:
+    - '1.server.centos.org prefer iburst sync'
+    - '2.server.centos.org sync iburst'
+    - '3.server.centos.org'
+    - '4.server.centos.org'
+    - '5.server.centos.org'
+    users:
+    - tom
+    - dick
+
+  tasks:
+  - name: deisplaying username
+    user: name="{{ item }}" state=present
+    with_items:
+    - Piyush
+    - Kiran
+    - Moddashir
+  - name: copy files
+    template: src=/home/ec2-user/templates/test.j2 dest=/tmp/ntp.conf
