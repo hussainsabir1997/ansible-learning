@@ -1,1 +1,1 @@
-I have started leaning Ansible and loving it!!
+I have started learning Ansible and loving it!!
